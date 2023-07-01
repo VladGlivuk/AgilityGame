@@ -1,3 +1,5 @@
+@import url('./assets/styles/_variables.css');
+
 * {
   margin: 0;
 }
