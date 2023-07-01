@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8%;
+  margin-top: 16px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+}

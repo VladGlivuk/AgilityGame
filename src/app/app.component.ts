@@ -3,8 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'agility-game';
+  constructor() {}
+
+  createGameHandler = (time: number) => {
+    console.log('time: ', time);
+  };
 }
