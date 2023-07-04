@@ -8,6 +8,7 @@ import { Row } from 'src/app/core/types';
   styleUrls: ['./row.component.css'],
 })
 export class RowItem implements OnInit {
+  @Input() activeCellId: string | null;
   @Input() row: Row = [];
 
   constructor() {}

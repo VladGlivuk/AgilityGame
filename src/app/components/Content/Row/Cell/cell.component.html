@@ -1,1 +1,12 @@
-<div *ngIf="cell" class="cell"></div>
+<div
+  *ngIf="cell"
+  class="cell"
+  [ngClass]="
+    activeCellId === cell.id
+      ? 'cell_active'
+      : cell.isPicked
+      ? 'cell_picked'
+      : null
+  "
+  (click)="cellClickHandler()"
+></div>

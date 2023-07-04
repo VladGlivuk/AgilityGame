@@ -8,6 +8,7 @@ import { GridCells } from 'src/app/core/types';
   styleUrls: ['./content.component.css'],
 })
 export class Content implements OnInit {
+  @Input() activeCellId: string | null;
   @Input() grid: GridCells = [];
 
   constructor() {}

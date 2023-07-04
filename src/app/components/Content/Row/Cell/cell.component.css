@@ -4,3 +4,11 @@
   border: 1px solid var(--default-cell-border-color);
   background-color: var(--default-cell-background-color);
 }
+
+.cell_active {
+  background-color: yellow;
+}
+
+.cell_picked {
+  background-color: red;
+}

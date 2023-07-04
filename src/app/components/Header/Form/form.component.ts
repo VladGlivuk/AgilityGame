@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+//constants
+import { defaultTime } from 'src/app/core/constants';
 
 @Component({
   selector: 'header-form',
@@ -8,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class HeaderForm implements OnInit {
   @Input() createGameClickHandler: (time: number) => void;
-  timeValue: number = 5000;
+  timeValue: number = defaultTime;
 
   constructor() {}
 
