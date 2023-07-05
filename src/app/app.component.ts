@@ -51,31 +51,12 @@ export class AppComponent {
   onCellChangeHandler(event: CustomEvent<Cell>) {
     const cell = event.detail;
 
-    //TODO refactor
-    cell.isPicked = CELL_PICKED_STATE.BY_PLAYER;
-    cell.isActive = false;
-    this.activeCellId = null;
-    this.score.player++;
-
-    const isComputerWon = this.score.computer >= scoreToWin;
-    const isPlayerWon = this.score.player >= scoreToWin;
-
-    if (isComputerWon || isPlayerWon) this.endGame(isComputerWon);
-    else this.generateRandomActiveCell();
+    this.changeCellHelper(cell, CELL_PICKED_STATE.BY_PLAYER);
   }
 
   private startTimer(cell: Cell) {
     this.timer = setTimeout(() => {
-      cell.isPicked = CELL_PICKED_STATE.BY_COMPUTER;
-      cell.isActive = false;
-      this.activeCellId = null;
-      this.score.computer++;
-
-      const isComputerWon = this.score.computer >= scoreToWin;
-      const isPlayerWon = this.score.player >= scoreToWin;
-
-      if (isComputerWon || isPlayerWon) this.endGame(isComputerWon);
-      else this.generateRandomActiveCell();
+      this.changeCellHelper(cell, CELL_PICKED_STATE.BY_COMPUTER);
     }, this.timeToPick);
   }
 
@@ -90,5 +71,21 @@ export class AppComponent {
     }
     this.activeCellId = null;
     this.score = { ...scoreInitialValue };
+  }
+
+  private changeCellHelper(cell: Cell, pickedState: CELL_PICKED_STATE) {
+    cell.isPicked = pickedState;
+    cell.isActive = false;
+    this.activeCellId = null;
+
+    pickedState === CELL_PICKED_STATE.BY_PLAYER
+      ? this.score.player++
+      : this.score.computer++;
+
+    const isComputerWon = this.score.computer >= scoreToWin;
+    const isPlayerWon = this.score.player >= scoreToWin;
+
+    if (isComputerWon || isPlayerWon) this.endGame(isComputerWon);
+    else this.generateRandomActiveCell();
   }
 }

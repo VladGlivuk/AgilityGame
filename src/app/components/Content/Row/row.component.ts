@@ -5,7 +5,6 @@ import { Row } from 'src/app/core/types';
 @Component({
   selector: 'row',
   templateUrl: './row.component.html',
-  styleUrls: ['./row.component.css'],
 })
 export class RowItem implements OnInit {
   @Input() activeCellId: string | null;

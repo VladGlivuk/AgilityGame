@@ -1,1 +1,1 @@
-export const defaultTime = 2000;
+export const defaultTime = 1000;
