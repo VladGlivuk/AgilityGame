@@ -3,6 +3,7 @@
   width: 4rem;
   border: 1px solid var(--default-cell-border-color);
   background-color: var(--default-cell-background-color);
+  transition: background 0.3s ease;
 }
 
 .cell_active {

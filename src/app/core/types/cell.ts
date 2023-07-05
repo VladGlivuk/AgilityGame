@@ -8,11 +8,11 @@ export type Cell = {
 };
 
 export enum CELL_PICKED_STATE {
-  BY_COMPUTER,
+  BY_COMPUTER = 1,
   BY_PLAYER,
 }
 
 export type NewGridValues = {
   newGrid: GridCells;
-  activeCellId: string;
+  cell: Cell;
 };

@@ -18,6 +18,6 @@ export const getNewGridWithActiveCell = (grid: GridCells): NewGridValues => {
 
   return {
     newGrid: grid,
-    activeCellId: activeCell.id,
+    cell: activeCell,
   };
 };
