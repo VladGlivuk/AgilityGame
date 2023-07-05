@@ -10,6 +10,10 @@
   background-color: var(--active-cell-background-color);
 }
 
-.cell_picked {
-  background-color: var(--picked-cell-background-color);
+.cell_failed {
+  background-color: var(--failed-cell-background-color);
+}
+
+.cell_succeeded {
+  background-color: var(--succeeded-cell-background-color);
 }

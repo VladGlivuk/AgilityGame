@@ -1,16 +1,18 @@
 //types
-import { GridCells } from "./grid";
+import { GridCells } from './grid';
+//constants
+import { ACTIVE, DEFAULT, FAILED, SUCCEEDED } from '../constants';
 
 export type Cell = {
   id: string;
-  isActive: boolean;
-  isPicked: CELL_PICKED_STATE | null;
+  state: CellState;
 };
 
-export enum CELL_PICKED_STATE {
-  BY_COMPUTER = 1,
-  BY_PLAYER,
-}
+export type CellState =
+  | typeof DEFAULT
+  | typeof ACTIVE
+  | typeof SUCCEEDED
+  | typeof FAILED;
 
 export type NewGridValues = {
   newGrid: GridCells;

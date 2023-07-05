@@ -6,9 +6,11 @@ import {
   getNewGridWithActiveCell,
 } from './core/functions';
 //types
-import { CELL_PICKED_STATE, Cell, GridCells, ScoreValue } from './core/types';
+import { Cell, GridCells, ScoreValue, CellState } from './core/types';
 //constants
 import {
+  FAILED,
+  SUCCEEDED,
   defaultColumns,
   defaultRows,
   defaultTime,
@@ -51,12 +53,12 @@ export class AppComponent {
   onCellChangeHandler(event: CustomEvent<Cell>) {
     const cell = event.detail;
 
-    this.changeCellHelper(cell, CELL_PICKED_STATE.BY_PLAYER);
+    this.changeCellHelper(cell, SUCCEEDED);
   }
 
   private startTimer(cell: Cell) {
     this.timer = setTimeout(() => {
-      this.changeCellHelper(cell, CELL_PICKED_STATE.BY_COMPUTER);
+      this.changeCellHelper(cell, FAILED);
     }, this.timeToPick);
   }
 
@@ -73,14 +75,11 @@ export class AppComponent {
     this.score = { ...scoreInitialValue };
   }
 
-  private changeCellHelper(cell: Cell, pickedState: CELL_PICKED_STATE) {
-    cell.isPicked = pickedState;
-    cell.isActive = false;
+  private changeCellHelper(cell: Cell, cellState: CellState) {
     this.activeCellId = null;
+    cell.state = cellState;
 
-    pickedState === CELL_PICKED_STATE.BY_PLAYER
-      ? this.score.player++
-      : this.score.computer++;
+    cellState === SUCCEEDED ? this.score.player++ : this.score.computer++;
 
     const isComputerWon = this.score.computer >= scoreToWin;
     const isPlayerWon = this.score.player >= scoreToWin;

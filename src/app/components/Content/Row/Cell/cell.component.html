@@ -2,11 +2,13 @@
   *ngIf="cell"
   class="cell"
   [ngClass]="
-    activeCellId === cell.id
+    cell.state === 'default'
+      ? 'cell'
+      : cell.state === 'active'
       ? 'cell_active'
-      : cell.isPicked
-      ? 'cell_picked'
-      : null
+      : cell.state === 'failed'
+      ? 'cell_failed'
+      : 'cell_succeeded'
   "
   (click)="cellClickHandler()"
 ></div>
