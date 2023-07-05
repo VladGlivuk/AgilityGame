@@ -7,9 +7,9 @@
 }
 
 .cell_active {
-  background-color: yellow;
+  background-color: var(--active-cell-background-color);
 }
 
 .cell_picked {
-  background-color: red;
+  background-color: var(--picked-cell-background-color);
 }

@@ -1,4 +1,7 @@
 :root {
-  --default-cell-background-color: #0000FF;
+  --default-cell-background-color: #0000ff;
+  --active-cell-background-color: yellow;
+  --picked-cell-background-color: red;
+
   --default-cell-border-color: black;
 }
